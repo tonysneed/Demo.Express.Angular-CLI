@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './product';
+import { Product } from '../shared/product';
+import { ProductsService } from '../shared/products.service';
 
 @Component({
   selector: 'app-products',
@@ -9,13 +10,21 @@ export class ProductsComponent implements OnInit {
 
   title: string = 'Products';
   products: Product[];
+  error: any;
 
-  constructor() { }
+  constructor(private _productService: ProductsService) { }
 
   ngOnInit() {
-    this.products = [
-            new Product(1, 'Product 1', 10),
-            new Product(2, 'Product 2', 20),
-        ];
+    // this.products = [
+    //         new Product(1, 'Product 1', 10),
+    //         new Product(2, 'Product 2', 20),
+    //     ];
+
+    // Replaced with async call
+    // this.products = this._productService.getProducts();
+
+    this._productService.getProducts()
+      .then(products => this.products = products)
+      .catch(error => this.error = error);
   }
 }
