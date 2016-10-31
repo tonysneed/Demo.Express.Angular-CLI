@@ -1,15 +1,15 @@
-import * as express from "express";
-import { Request, Response } from "express";
+import * as express from 'express';
+import { Request, Response } from 'express';
 
-import { Product } from "../models/product";
-import ProductsRepository from "../services/products-repo";
+import { Product } from '../models/product';
+import ProductsRepository from '../services/products-repo';
 
 let router = express.Router();
 let productsRepo = new ProductsRepository();
 
 // GET route
-router.get("/", async (req: Request, resp: Response) => {
-    console.log("Retrieving products");
+router.get('/', async (req: Request, resp: Response) => {
+    console.log('Retrieving products');
     try {
         let products = await productsRepo.retrieveAll();
         resp.json(products);
@@ -20,14 +20,14 @@ router.get("/", async (req: Request, resp: Response) => {
 });
 
 // GET route with id
-router.get("/:id", async (req: Request, resp: Response) => {
+router.get('/:id', async (req: Request, resp: Response) => {
     console.log(`Retrieving product id ${req.params.id}`);
     try {
         let product = await productsRepo.retrieve(+req.params.id);
         resp.json(product);
     } catch (error) {
         console.log(error);
-        if (error.indexOf("Invalid id") > -1) {
+        if (error.indexOf('Invalid id') > -1) {
             resp.sendStatus(404);
             return;
         }
@@ -36,14 +36,14 @@ router.get("/:id", async (req: Request, resp: Response) => {
 });
 
 // POST route
-router.post("/", async (req: Request, resp: Response) => {
+router.post('/', async (req: Request, resp: Response) => {
     console.log(`Creating product: ${JSON.stringify(req.body)}`);
     try {
         let product = await productsRepo.create(req.body);
         resp.json(product);
     } catch (error) {
         console.log(error);
-        if (error.indexOf("Product exists") > -1) {
+        if (error.indexOf('Product exists') > -1) {
             resp.sendStatus(400);
             return;
         }
@@ -52,14 +52,14 @@ router.post("/", async (req: Request, resp: Response) => {
 });
 
 // PUT route
-router.put("/", async (req: Request, resp: Response) => {
+router.put('/', async (req: Request, resp: Response) => {
     console.log(`Updating product id ${req.body.productId} to: ${JSON.stringify(req.body)}`);
     try {
         let product = await productsRepo.update(req.body);
         resp.json(product);
     } catch (error) {
         console.log(error);
-        if (error.indexOf("Invalid id") > -1) {
+        if (error.indexOf('Invalid id') > -1) {
             resp.sendStatus(404);
             return;
         }
@@ -68,14 +68,14 @@ router.put("/", async (req: Request, resp: Response) => {
 });
 
 // DELETE route with id
-router.delete("/:id", async (req: Request, resp: Response) => {
+router.delete('/:id', async (req: Request, resp: Response) => {
     console.log(`Deleting product id ${req.params.id}`);
     try {
         await productsRepo.delete(+req.params.id);
         resp.end();
     } catch (error) {
         console.log(error);
-        if (error.indexOf("Invalid id") > -1) {
+        if (error.indexOf('Invalid id') > -1) {
             resp.sendStatus(404);
             return;
         }

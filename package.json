@@ -23,6 +23,6 @@
     "express": "^4.14.0"
   },"repository": {
     "type": "git",
-    "url": "https://github.com/tonysneed/Demo.Express.Injection.git"
+    "url": "https://github.com/tonysneed/Demo.Express.Angular-CLI.git"
   }
 }

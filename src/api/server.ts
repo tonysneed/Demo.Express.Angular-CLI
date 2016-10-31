@@ -1,8 +1,8 @@
-import * as express from "express";
-import { Request, Response } from "express";
-import * as bodyParser from "body-parser";
+import * as express from 'express';
+import { Request, Response } from 'express';
+import * as bodyParser from 'body-parser';
 
-import { productsRouter } from "./routes/products";
+import { productsRouter } from './routes/products';
 
 namespace express_web_api {
 
@@ -14,11 +14,11 @@ namespace express_web_api {
     app.use(bodyParser.json());
 
     // Add products router
-    app.use("/api/products", productsRouter);
+    app.use('/api/products', productsRouter);
 
     // Handle GET for the root URL
-    app.get("/", (req: Request, resp: Response) => {
-        resp.send("Hello Express!");
+    app.get('/', (req: Request, resp: Response) => {
+        resp.send('Hello Express!');
     });
 
     // Start the web app
