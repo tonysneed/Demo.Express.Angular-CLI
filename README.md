@@ -9,11 +9,11 @@
 
 ## Build, Run and Watch
 
-*The easiest way to start the app is to use the* `start` *task,    
+*The easiest way to start the app is to use the* `serve-api` *task,    
 which will restart the app when any changes saved.*
 
-- Press **Cmd + P** (Mac) or **Ctrl + P** (Windows / Linux) and enter: `task start-api`
-- Or open a **terminal** and enter: `gulp start-api`
+- Press **Cmd + P** (Mac) or **Ctrl + P** (Windows / Linux) and enter: `task serve-api`
+- Or open a **terminal** and enter: `gulp serve-api`
     + Press **Ctrl + C** to terminate the app
 - Project will build and start while *monitoring* for file changes
     + If you edit and save a file, the project will *restart*
@@ -22,7 +22,7 @@ which will restart the app when any changes saved.*
     + Press **Cmd + Shift + P** (Mac) or **Ctrl + Shift P** (Windows / Linux),  
       select **Terminate Running Task**
 
-NOTE: The `start-api` task does not run the `clean` task to remove the **dist** folder
+NOTE: The `serve-api` task does not run the `clean-api` task to remove the **dist** folder
 and its contents, because removing the folder interfers with nodemon on Windows.
 However, if you want to clean out old files, you can simply build the project, 
 which includes removal of the **dist** folder.
@@ -42,7 +42,7 @@ which includes removal of the **dist** folder.
 - You may set a **breakpoint** in the file if you wish.
 - Show debug console: **Cmd + Shift + Y** (Mac) or **Ctrl + Shift Y** (Windows / Linux)
 
-# PART B: Angular CLI
+# PART B: Angular
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
 
