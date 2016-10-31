@@ -12,7 +12,7 @@
 *The easiest way to start the app is to use the* `serve-api` *task,    
 which will restart the app when any changes saved.*
 
-- Press **Cmd + P** (Mac) or **Ctrl + P** (Windows / Linux) and enter: `task start-api`
+- Press **Cmd + P** (Mac) or **Ctrl + P** (Windows / Linux) and enter: `task serve-api`
 - Or open a **terminal** and enter: `gulp serve-api`
     + Press **Ctrl + C** to terminate the app
 - Project will build and start while *monitoring* for file changes
@@ -22,7 +22,7 @@ which will restart the app when any changes saved.*
     + Press **Cmd + Shift + P** (Mac) or **Ctrl + Shift P** (Windows / Linux),  
       select **Terminate Running Task**
 
-NOTE: The `serve-api` task does not run the `clean` task to remove the **dist** folder
+NOTE: The `serve-api` task does not run the `clean-api` task to remove the **dist** folder
 and its contents, because removing the folder interfers with nodemon on Windows.
 However, if you want to clean out old files, you can simply build the project, 
 which includes removal of the **dist** folder.
