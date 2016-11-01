@@ -1,7 +1,6 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
 
-import { Product } from '../models/product';
 import ProductsRepository from '../services/products-repo';
 
 let router = express.Router();
