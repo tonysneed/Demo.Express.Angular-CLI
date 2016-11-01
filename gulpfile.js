@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var tslint = require('gulp-tslint');
 var del = require('del');
 var exec = require('child_process').exec;
+var execSync = require('child_process').execSync;
 var nodemon = require('gulp-nodemon');
 var runSequence = require('run-sequence');
 
@@ -23,18 +24,18 @@ gulp.task('compile-api', function (done) {
 });
 
 gulp.task('build-api', function (done) {
-    runSequence('vet-api', 'clean-api', ['compile-api'], done);
+    runSequence('vet-api', 'clean-api', 'compile-api', done);
 });
 
 gulp.task('build-api-no-clean', function (done) {
-    runSequence('vet-api', ['compile-api'], done);
+    runSequence('vet-api', 'compile-api', done);
 });
 
 gulp.task('watch-api', ['build-api-no-clean'], function () {
     return gulp.watch(['src/api/**/*.ts'], ['build-no-clean']);
 });
 
-gulp.task('start-api', ['watch-api'], function () {
+gulp.task('serve-api', ['watch-api'], function () {
     return nodemon({
         script: 'dist/api/server.js',
         watch: 'dist/api',
@@ -44,3 +45,4 @@ gulp.task('start-api', ['watch-api'], function () {
         console.log('Restarted');
     });
 });
+

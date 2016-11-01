@@ -1,4 +1,4 @@
-import { Product } from "../models/product";
+import { Product } from '../models/product';
 
 // Methods return promises to simulate IO-bound operations
 
@@ -6,12 +6,12 @@ export default class ProductsRepository {
 
     // Array of products
     private _products = [
-        new Product(1, "Chai", 10),
-        new Product(2, "Espresso", 20),
-        new Product(3, "Capuccino", 30),
-        new Product(4, "Macchiato", 40),
-        new Product(5, "Americano", 50),
-        new Product(6, "Flat White", 60),
+        new Product(1, 'Chai', 10),
+        new Product(2, 'Espresso', 20),
+        new Product(3, 'Capuccino', 30),
+        new Product(4, 'Macchiato', 40),
+        new Product(5, 'Americano', 50),
+        new Product(6, 'Flat White', 60),
     ];
 
     retrieveAll(): Promise<Product[]> {
