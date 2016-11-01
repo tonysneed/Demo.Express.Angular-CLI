@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { Product } from './product';
-import { Urls } from '../shared/constants';
+import { Product } from '../models/product';
+import { Urls } from '../constants';
 
 @Injectable()
 export class ProductsService {
