@@ -6,7 +6,7 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import { ProductsService } from './shared/products.service';
+import { ProductsService } from './shared/services/products.service';
 
 @NgModule({
   declarations: [
